@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WhatsApp Form Test</title>
+  </head>
+  <body>
+    <h1>Contact Form Test</h1>
+
+    <form id="contactForm">
+      <input
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        required
+      /><br /><br />
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        required
+      /><br /><br />
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+      /><br /><br />
+      <input
+        type="text"
+        name="organisation"
+        placeholder="Organisation"
+      /><br /><br />
+      <input
+        type="text"
+        name="enquiryType"
+        placeholder="Enquiry Type"
+      /><br /><br />
+      <textarea name="message" placeholder="Your Message" required></textarea
+      ><br /><br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const firstName = form.firstName.value;
+        const lastName = form.lastName.value;
+        const email = form.email.value;
+        const organisation = form.organisation.value;
+        const enquiryType = form.enquiryType.value;
+        const message = form.message.value;
+
+        const phoneNumber = "919346555487"; // replace with your WhatsApp number
+        const text = `New Enquiry:
+First Name: ${firstName}
+Last Name: ${lastName}
+Email: ${email}
+Organisation: ${organisation}
+Enquiry Type: ${enquiryType}
+Message: ${message}`;
+
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+          text
+        )}`;
+        window.open(url, "_blank");
+      });
+    </script>
+  </body>
+</html>
