@@ -22,6 +22,7 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
       input,
+      select,
       textarea,
       button {
         width: 100%;
@@ -51,7 +52,16 @@
       <input type="text" name="lastName" placeholder="Last Name" required />
       <input type="email" name="email" placeholder="Email" required />
       <input type="text" name="organisation" placeholder="Organisation" />
-      <input type="text" name="enquiryType" placeholder="Enquiry Type" />
+
+      <!-- Dropdown for Enquiry Type -->
+      <select name="enquiryType" required>
+        <option value="" disabled selected>Select Enquiry Type</option>
+        <option value="Customer">Customer</option>
+        <option value="Broker">Broker</option>
+        <option value="Architect">Architect</option>
+        <option value="Investor">Investor</option>
+      </select>
+
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Submit</button>
     </form>
@@ -93,7 +103,7 @@
         }
 
         // 2️⃣ Open WhatsApp with pre-filled message
-        const phoneNumber = "91XXXXXXXXXX"; // replace with your WhatsApp number
+        const phoneNumber = "918919523258"; // replace with your WhatsApp number
         const text = `New Enquiry:
 First Name: ${data.firstName}
 Last Name: ${data.lastName}
